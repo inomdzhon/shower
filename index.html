@@ -6,13 +6,203 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="node_modules/shower-ribbon/styles/screen-16x10.css">
+	<style>
+		.content-center {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		h2.hero-title {
+			font-size: 120px;
+			text-shadow: 10px 10px 5px #eee;
+		}
+	</style>
 </head>
 <body class="shower list">
 
-	<header class="caption">
-		<h1>Shower Presentation Engine</h1>
-		<p>Yours Truly, Famous Inc.</p>
-	</header>
+	<section class="slide" id="ways">
+		<div class="table">
+			<div class="col">
+				<h2>React way</h2>
+				<ul>
+					<li>react-motion</li>
+					<li>react-addons-transition-group</li>
+				</ul>
+			</div>
+			<div class="col">
+				<h2>Another Way</h2>
+				<ul>
+					<li>GSAP</li>
+					<li>AnimJS</li>
+					<li>jQuery</li>
+				</ul>
+			</div>
+		</div>
+		<style>
+			#ways {
+				display: flex;
+				align-items: center;
+				padding-right: 50px;
+				padding-left: 50px;
+				font-size: 32px;
+			}
+			#ways .table {
+				display: flex;
+				flex-direction: row;
+				width: 100%;
+			}
+			#ways .col {
+				width: 50%;
+			}
+			#ways .col:first-child {
+				padding-right: 20px;
+			}
+			#ways .col:last-child {
+				padding-left: 20px;
+			}
+			#ways ul {
+				margin: 0;
+				padding: 0 0 0 30px;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="animation-example">
+		<h2>Example</h2>
+		<img src="pictures/animation-example.gif" alt="">
+		<style>
+			#animation-example img {
+				display: block;
+				margin: auto;
+				max-width: 60%;
+				width: 100%;
+				height: auto;
+			}
+		</style>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code>const arrCards = [</code>
+			<code>	{</code>
+			<code>		key: 1,</code>
+			<code>	}, {</code>
+			<code>		key: 2,</code>
+			<code>	}, {</code>
+			<code>		...</code>
+			<code>	}</code>
+			<code>]</code>
+		</pre>
+	</section>
+
+	<section class="slide">
+		<pre>
+			<code>&lt;div class="card-wrap"&gt;</code>
+			<code>	&lt;div class="card"&gt;1&lt;/div&gt;</code>
+			<code>	&lt;div class="card"&gt;2&lt;/div&gt;</code>
+			<code>	&lt;div class="card"&gt;...&lt;/div&gt;</code>
+			<code>&lt;/div&gt;</code>
+		</pre>
+	</section>
+
+	<section class="slide content-center" id="react-way">
+		<h2 class="hero-title">React way</h2>
+	</section>
+
+	<section class="slide content-center" id="react-motion">
+		<h2>react-motion</h2>
+	</section>
+
+	<section class="slide react-motion" id="react-motion-1">
+		<pre>
+			<code>	<mark>getDefaultStyles()</mark> { // нужно создать метод, который будет определять</code>
+			<code>                            исходное состояние для каждого элемента (массив объектов)</code>
+			<code>		return this.state.arrCards.map(()=> {</code>
+			<code>			return {</code>
+			<code>				opacity: 0,</code>
+			<code>				translateY: 50,</code>
+			<code>			};</code>
+			<code>		});</code>
+			<code>	}</code>
+			<code>	<mark>getStyles(prevInterpolatedStyles)</mark> { // также метод, который будет описывать саму анимацию, использую</code>
+			<code>                                           предыдущие состояния (они передаются аргументом)</code>
+			<code>		return prevInterpolatedStyles.map((_, i) => {</code>
+			<code>			if (i === 0) {</code>
+			<code>				return {</code>
+			<code>					opacity: <mark>spring(1, [30, 11])</mark>, // функция spring, грубо говоря, задает тип анимации, на</code>
+			<code>                                                     подобии ease, ease-in-out и т.д.</code>
+			<code>					translateY: spring(0, [30, 11]),</code>
+			<code>				};</code>
+			<code>			} else {</code>
+			<code>				return {</code>
+			<code>					opacity: spring(prevInterpolatedStyles[i - 1].opacity),</code>
+			<code>					translateY: spring(prevInterpolatedStyles[i - 1].translateY),</code>
+			<code>				};</code>
+			<code>			}</code>
+			<code>		});</code>
+			<code>	}</code>
+		</pre>
+	</section>
+
+	<section class="slide react-motion" id="react-motion-2">
+		<pre>
+			<code>render() {</code>
+			<code>	return (</code>
+			<code>	    // Компонент &lt;StaggeredMotion&gt; как раз рассчитан на анимирование коллекции элементов</code>
+			<code>	    // В children'ы передается функция, которая будет вызваться всю анимацию</code>
+			<code>		<mark>&lt;StaggeredMotion defaultStyles={this.getDefaultStyles()} styles={this.getStyles}&gt;</code></mark>
+			<code>			{(interpolatingStyles) =></code>
+			<code>				&lt;div className="card-wrap"&gt;</code>
+			<code>					{</code>
+			<code>						interpolatingStyles.map((item, i) => {</code>
+			<code>							return (</code>
+			<code>								&lt;div</code>
+			<code>									key={item.key}</code>
+			<code>									className="card"</code>
+			<code>									style={{</code>
+			<code>										// собственно значения, которое высчитываются в getStyles</code>
+			<code>										   (изначально состояние выставляется из getDefaultStyles)</code>
+			<code>										opacity: <mark>`${item.opacity}`</mark>,</code>
+			<code>										transform: <mark>`translateY(${item.translateY}px)`</mark></code>
+			<code>									}}</code>
+			<code>									datatype={item.type}&gt;</code>
+			<code>										{item.key}</code>
+			<code>									&lt;/div&gt;</code>
+			<code>							);</code>
+			<code>						})</code>
+			<code>					}</code>
+			<code>				&lt;/div&gt;</code>
+			<code>			}</code>
+			<code>		&lt;/StaggeredMotion&gt;</code>
+			<code>   );  </code>
+			<code> }</code>
+		</pre>
+	</section>
+
+	<section class="slide react-motion" id="react-motion-result">
+		<iframe src="https://codepen.io/inomdzhon/embed/YVgBdm?height=100%25&amp;theme-id=light&amp;slug-hash=YVgBdm&amp;default-tab=result&amp;user=inomdzhon&amp;embed-version=2&amp;pen-title=react-motion%20%20tiles%20fadeIn" scrolling="no" frameborder="0" height="100%" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="react-motion  tiles fadeIn" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+	</section>
+
+	<style>
+		.react-motion {
+			padding-top: 10px;
+		}
+		.react-motion pre {
+			font-size: 14px;
+			line-height: 1.7;
+		}
+		.react-motion pre code {
+			line-height: inherit;
+		}
+	</style>
+
+	<section class="slide content-center" id="react-transition">
+		<h2>react-addons-transition-group</h2>
+	</section>
+
+	<section class="slide content-center" id="react-transition-1">
+		Тоже самое, что и react-motion, но своими руками и оперируя классами
+	</section>
 
 	<section class="slide" id="cover">
 		<h2>Shower Presentation Engine</h2>
