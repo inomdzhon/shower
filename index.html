@@ -11,10 +11,27 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			padding-top: 0;
 		}
 		h2.hero-title {
 			font-size: 120px;
 			text-shadow: 10px 10px 5px #eee;
+		}
+		.large-code {
+			padding-top: 10px;
+		}
+		.large-code pre {
+			font-size: 14px;
+			line-height: 1.7;
+		}
+		.large-code pre code {
+			line-height: inherit;
+		}
+		.conclusion ul {
+			margin: 0 0 20px;
+		}
+		.conclusion li {
+			padding-left: 25px;
 		}
 	</style>
 </head>
@@ -44,12 +61,12 @@
 				align-items: center;
 				padding-right: 50px;
 				padding-left: 50px;
-				font-size: 32px;
 			}
 			#ways .table {
 				display: flex;
 				flex-direction: row;
 				width: 100%;
+				font-size: 32px;
 			}
 			#ways .col {
 				width: 50%;
@@ -111,9 +128,35 @@
 
 	<section class="slide content-center" id="react-motion">
 		<h2>react-motion</h2>
+		<img class="bubble" src="pictures/reat-motion-bubble.gif" alt="">
+		<img class="card" src="pictures/reat-motion-card-fade-in.gif" alt="">
+		<img class="carousel" src="pictures/reat-motion-carousel.gif" alt="">
+		<style>
+			#react-motion {
+				position: relative;
+			}
+			#react-motion img.bubble {
+				position: absolute;
+				top: 81px;
+				left: 65px;
+				width: 258px;
+			}
+			#react-motion img.card {
+				position: absolute;
+				bottom: 81px;
+				left: 65px;
+				width: 258px;
+			}
+			#react-motion img.carousel {
+				position: absolute;
+				top: 81px;
+				right: 65px;
+				width: 258px;
+			}
+		</style>
 	</section>
 
-	<section class="slide react-motion" id="react-motion-1">
+	<section class="slide large-code" id="react-motion-1">
 		<pre>
 			<code>	<mark>getDefaultStyles()</mark> { // нужно создать метод, который будет определять</code>
 			<code>                            исходное состояние для каждого элемента (массив объектов)</code>
@@ -144,7 +187,7 @@
 		</pre>
 	</section>
 
-	<section class="slide react-motion" id="react-motion-2">
+	<section class="slide large-code" id="react-motion-2">
 		<pre>
 			<code>render() {</code>
 			<code>	return (</code>
@@ -179,207 +222,349 @@
 		</pre>
 	</section>
 
-	<section class="slide react-motion" id="react-motion-result">
+	<section class="slide large-code" id="react-motion-result">
 		<iframe src="https://codepen.io/inomdzhon/embed/YVgBdm?height=100%25&amp;theme-id=light&amp;slug-hash=YVgBdm&amp;default-tab=result&amp;user=inomdzhon&amp;embed-version=2&amp;pen-title=react-motion%20%20tiles%20fadeIn" scrolling="no" frameborder="0" height="100%" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="react-motion  tiles fadeIn" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
 	</section>
-
-	<style>
-		.react-motion {
-			padding-top: 10px;
-		}
-		.react-motion pre {
-			font-size: 14px;
-			line-height: 1.7;
-		}
-		.react-motion pre code {
-			line-height: inherit;
-		}
-	</style>
 
 	<section class="slide content-center" id="react-transition">
 		<h2>react-addons-transition-group</h2>
 	</section>
 
-	<section class="slide content-center" id="react-transition-1">
-		Тоже самое, что и react-motion, но своими руками и оперируя классами
-	</section>
-
-	<section class="slide" id="cover">
-		<h2>Shower Presentation Engine</h2>
-		<p>Brought to you by <a href="http://pepelsbey.net">Vadim Makeev</a></p>
-		<figure>
-			<img class="cover" src="pictures/cover.jpg" alt="Hands on the orange typewriter in a park">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
+	<section class="slide" id="react-transition-1">
+		<p>Тоже самое, что и <b>react-motion</b>, но своими руками и оперируя классами</p>
+		<p>(setState + setTimeout + Recursion = <img src="pictures/emoji/bike.jpg" alt=""> <img src="pictures/emoji/party-parrot.gif" alt="">)</p>
 		<style>
-			#cover h2 {
-				margin:30px 0 0;
-				color:#FFF;
-				text-align:center;
-				font-size:70px;
-				}
-			#cover p {
-				margin:10px 0 0;
-				text-align:center;
-				color:#FFF;
-				font-style:italic;
-				font-size:20px;
-				}
-				#cover p a {
-					color:#FFF;
-					}
+			#react-transition-1 {
+				padding: 100px;
+			}
+			#react-transition-1 p {
+				font-weight: 700;
+				font-size: 50px;
+				text-align: center;
+			}
+			#react-transition-1 b {
+				text-decoration: underline;
+			}
+			#react-transition-1 img {
+				width: 100px;
+				vertical-align: middle;
+			}
 		</style>
 	</section>
 
-	<section class="slide">
-		<h2>Shower key features</h2>
-		<ol>
-			<li>Built on HTML, CSS and vanilla JavaScript</li>
-			<li>Works in all modern browsers</li>
-			<li>Themes are separated from engine</li>
-			<li>Modular and extensible</li>
-			<li>Fully keyboard accessible</li>
-			<li>Printable to PDF</li>
-		</ol>
-		<p class="note">Shower ['ʃəuə] noun. A person or thing that shows.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Plain text on your slides</h2>
-		<p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.</p>
-	</section>
-
-	<section class="slide">
-		<h2>Two columns if you like</h2>
-		<p class="double">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-	</section>
-
-	<section class="slide">
-		<h2>All kind of lists</h2>
-		<ol>
-			<li>Simple lists are marked with bullets</li>
-			<li>Ordered lists begin with a number</li>
-			<li>You can even nest lists one inside another
-				<ul>
-					<li>Or mix their types</li>
-					<li>But do not go too far</li>
-					<li>Otherwise audience will be bored</li>
-				</ul>
-			</li>
-			<li>Look, seven rows exactly!</li>
-		</ol>
-	</section>
-
-	<section class="slide">
-		<h2>Serious citations</h2>
-		<figure>
-			<blockquote>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia.</p>
-			</blockquote>
-			<figcaption>Marcus Tullius Cicero</figcaption>
-		</figure>
-	</section>
-
-	<section class="slide">
-		<h2>Code samples</h2>
+	<section class="slide" id="react-transition-2">
 		<pre>
-			<code>&lt;!DOCTYPE html&gt;</code>
-			<code class="mark">&lt;html lang="en"&gt;</code>
-			<code><mark>&lt;head&gt;</mark> <span class="comment">&lt;!--Comment--&gt;</span></code>
-			<code>    &lt;title&gt;Shower&lt;/title&gt;</code>
-			<code>    &lt;meta charset="<mark class="important">UTF-8</mark>"&gt;</code>
-			<code>    &lt;link rel="stylesheet" href="screen.css"&gt;</code>
-			<code><mark>&lt;/head&gt;</mark></code>
+			<code>.card-appear,</code>
+			<code>.card-enter {</code>
+			<code>  opacity: 0;</code>
+			<code>  transform: translateY(50px);</code>
+			<code>}</code>
+			<code></code>
+			<code>.card-appear-active,</code>
+			<code>.card-enter-active {</code>
+			<code>  opacity: 1;</code>
+			<code>  transform: translateY(0);</code>
+			<code>  transition: opacity 0.4s ease,</code>
+			<code>  transform 0.4s ease;</code>
+			<code>}</code>
+			<code></code>
+			<code>.card-leave {</code>
+			<code>  opacity: 1;</code>
+			<code>}</code>
+			<code></code>
+			<code>.card-leave-active {</code>
+			<code>  opacity: 0;</code>
+			<code>  transition: opacity 0.5s ease;</code>
+			<code>}</code>
 		</pre>
-	</section>
-
-	<section class="slide">
-		<h2>Even tables</h2>
-		<table>
-		<tr>
-			<th scope="col">Locavore</th>
-			<th>Umami</th>
-			<th>Helvetica</th>
-			<th>Vegan</th>
-		</tr>
-		<tr>
-			<th scope="row">Fingerstache</th>
-			<td>Kale</td>
-			<td>Chips</td>
-			<td>Keytar</td>
-		</tr>
-		<tr>
-			<th scope="row">Sriracha</th>
-			<td>Gluten-free</td>
-			<td>Ennui</td>
-			<td>Keffiyeh</td>
-		</tr>
-		<tr>
-			<th scope="row">Thundercats</th>
-			<td>Jean</td>
-			<td>Shorts</td>
-			<td>Biodiesel</td>
-		</tr>
-		<tr>
-			<th scope="row">Terry</th>
-			<td>Richardson</td>
-			<td>Swag</td>
-			<td>Blog</td>
-		</tr>
-		</table>
-		<p>It’s good to have information organized.</p>
-	</section>
-
-	<section class="slide" id="picture">
-		<h2>Pictures</h2>
-		<figure>
-			<img class="cover" src="pictures/picture.jpg" alt="Orange typewriter on a wooden table close-up">
-			<figcaption class="white">
-				<a href="http://fiftyfootshadows.net/">© John Carey</a>
-			</figcaption>
-		</figure>
+		<div>
+			Название состояний по умолчанию
+			<ul>
+				<li>appear</li>
+				<li>appear-active</li>
+				<li>enter</li>
+				<li>enter-active</li>
+				<li>leave</li>
+				<li>leave-active</li>
+			</ul>
+		</div>
 		<style>
-			#picture h2 {
-				color:#FFF;
-				}
+			#react-transition-2 {
+				position: relative;
+				padding-top: 20px;
+			}
+			#react-transition-2 pre {
+				font-size: 16px;
+			}
+			#react-transition-2 div {
+				position: absolute;
+				top: 140px;
+				left: 600px;
+				font-size: 20px;
+			}
+		</style>
+	</section>
+
+	<section class="slide conclusion" id="react-way-conclusion">
+		<h2>React way conclusion</h2>
+		<b>Плюсы</b>
+		<ul>
+			<li>естественно - это правильно</li>
+			<li>нет модификаций DOM из вне</li>
+		</ul>
+		<b>Минусы</b>
+		<ul>
+			<li>множественный вызов рендера</li>
+			<li>нет гибкости</li>
+		</ul>
+	</section>
+
+	<section class="slide conclusion" id="react-way-conclusion-2">
+		<h2>Когда можно использовать?</h2>
+		<ul>
+			<li>UI эл-ты, состояние которых меняет пользователь (Drag'n'Drop)</li>
+			<li>и к тому же нужна реалистичность - выбирай react-motion</li>
+			<li>добавление/удаление в DOM пару эл-ов (попап, Todo List)</li>
+		</ul>
+	</section>
+
+	<section class="slide content-center" id="another-way">
+		<h2 class="hero-title">Another way</h2>
+	</section>
+
+	<section class="slide large-code" id="another-way-render">
+		<h2>Ренедерим как обычно</h2>
+		<pre>
+			<code>render() {</code>
+			<code>	const arrCards = this.props.children;</code>
+			<code> </code>
+			<code>	return (</code>
+			<code>	&lt;div className="card-wrap"&gt;</code>
+			<code>	{arrCards.map((item) => {</code>
+			<code>		return (</code>
+			<code>			&lt;div</code>
+			<code>				key={item.key}</code>
+			<code>				className="card"</code>
+			<code>				ref={(elem) => this.arrCards.push(elem)}</code>
+			<code>			&gt;</code>
+			<code>				{item.key}</code>
+			<code>			&lt;/div&gt;</code>
+			<code>		);</code>
+			<code>		})}</code>
+			<code>	&lt;/div&gt;</code>
+			<code>	);</code>
+  			<code>}</code>
+		</pre>
+		<style>
+			#another-way-render {
+				padding-top: 80px;
+			}
+		</style>
+	</section>
+
+
+	<section class="slide content-center" id="animjs">
+		<h2>AnimJS</h2>
+	</section>
+
+	<section class="slide large-code" id="animjs-1">
+		<pre>
+			<code>fadeIn() {</code>
+			<code>	let index = 0;</code>
+			<code>	let nextElementDelay</code>
+			<code>		</code>
+			<code>	<mark>let animeJS = anime.timeline();</mark></code>
+			<code>		</code>
+			<code>	animeJS<mark>.add</mark>({</code>
+			<code>		targets: this.arrCards,</code>
+			<code>		duration: 1,</code>
+			<code>		opacity: 0,</code>
+			<code>		translateY: 50,</code>
+			<code>	});</code>
+			<code>		</code>
+			<code>	arrCards.forEach((elem) => {</code>
+			<code>		let delay = index++ * nextElementDelay * 1000;</code>
+			<code>		</code>
+			<code>		animeJS<mark>.add</mark>({</code>
+			<code>			targets: elem,</code>
+			<code>			duration: 400,</code>
+			<code>			opacity: 1,</code>
+			<code>			translateY: 0,</code>
+			<code>			easing: 'linear',</code>
+			<code>			offset: delay,</code>
+			<code>		});</code>
+			<code>	});</code>
+			<code>}</code>
+		</pre>
+		<style>
+			#animjs-1 {
+				padding-top: 30px;
+			}
+		</style>
+	</section>
+
+	<section class="slide large-code" id="animjs-result">
+		<iframe src="https://codepen.io/inomdzhon/embed/aWPeJL?height=100%25&amp;theme-id=light&amp;slug-hash=YVgBdm&amp;default-tab=result&amp;user=inomdzhon&amp;embed-version=2&amp;pen-title=react-motion%20%20tiles%20fadeIn" scrolling="no" frameborder="0" height="100%" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="react-motion  tiles fadeIn" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+	</section>
+
+	<section class="slide content-center" id="jquery">
+		<h2>jQuery</h2>
+	</section>
+
+	<section class="slide content-center" id="jquery-1">
+		<img src="pictures/emoji/no.jpg" alt="" >
+	</section>
+
+	<section class="slide content-center" id="GSAP">
+		<h2>GSAP</h2>
+		<img class="dial" src="pictures/gsap-dial.gif" alt="" >
+		<img class="phone" src="pictures/gsap-phone.gif" alt="" >
+		<img class="timelinelite" src="pictures/gsap-timelinelite.gif" alt="" >
+		<style>
+			#GSAP {
+				position: relative;
+			}
+			#GSAP img.dial {
+				position: absolute;
+				top: 81px;
+				left: 65px;
+				width: 258px;
+			}
+			#GSAP img.phone {
+				position: absolute;
+				bottom: 81px;
+				left: 65px;
+				width: 258px;
+			}
+			#GSAP img.timelinelite {
+				position: absolute;
+				top: 81px;
+				right: 65px;
+				width: 258px;
+			}
+		</style>
+	</section>
+
+	<section class="slide large-code" id="GSAP-2">
+		<pre>
+			<code>fadeIn() {</code>
+			<code>	let nextElementDelay = 0.2;</code>
+			<code>	let appearTime = 0.4;</code>
+			<code>	<mark>let tl = new TimelineLite();</mark></code>
+			<code> </code>
+			<code>	tl</code>
+			<code>		<mark>.set</mark>(this.arrCards, {</code>
+			<code>			display: 'none',</code>
+			<code>			opacity: 0,</code>
+			<code>			y: 50,</code>
+			<code>		})</code>
+			<code>		<mark>.staggerTo</mark>(this.arrCards, appearTime, {</code>
+			<code>			display: 'block',</code>
+			<code>			opacity: 1,</code>
+			<code>			y: 0,</code>
+			<code>		}, nextElementDelay);</code>
+			<code>}</code>
+		</pre>
+		<style>
+			#GSAP-2 {
+				padding-top: 80px;
+			}
+		</style>
+	</section>
+
+	<section class="slide large-code" id="GSAP-result">
+		<iframe src="https://codepen.io/inomdzhon/embed/bWLNbJ?height=100%25&amp;theme-id=light&amp;slug-hash=YVgBdm&amp;default-tab=result&amp;user=inomdzhon&amp;embed-version=2&amp;pen-title=react-motion%20%20tiles%20fadeIn" scrolling="no" frameborder="0" height="100%" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="react-motion  tiles fadeIn" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
+	</section>
+
+	<section class="slide" id="GSAP-features">
+		<h2>Преимущества</h2>
+		<ul>
+			<li>думаем в секундах, а не в миллисекундах</li>
+			<li>скорость</li>
+			<li>кроссбраузерность</li>
+			<li>большое сообщество</li>
+			<li>качественная документация</li>
+			<li>создание таймлайна</li>
+			<li>удобное API</li>
+			<li>GSAP API схож с Web Animations API (скорее всего в будущем Web Animations будет под капотом GSAP)
+				<pre>
+					<code>// Web Animations</code>
+					<code>var animation = new Animation(element, {"transform": "translate(100px, 200px)"}, 1500);</code>
+					<code>// GSAP</code>
+					<code>var animation = TweenMax(element, 1.5, { x: 100, y: 200 });</code>
+				</pre>
+			</li>
+		</ul>
+		<style>
+			#GSAP-features ul {
+				margin: 0;
+				padding: 0;
+			}
+			#GSAP-features li {
+				padding-left: 25px;
+				font-size: 16px;
+			}
+			#GSAP-features pre code:not(:only-child)::before {
+				display: none;
+			}
+			#GSAP-features code {
+				margin-left: 0;
+				padding-left: 40px;
+				font-size: 14px;
+				line-height: 1.5;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="GSAP-size">
+		<h2>"Размер имеет значение" (с) Woman</h2>
+		<ul>
+			<li>TweenLite (9Kb)</li>
+			<li>TimelineLite (4Kb)</li>
+			<li>css (15Kb)</li>
+		</ul>
+		<b>В сумме: </b>28Kb
+		<style>
+			#GSAP-size ul {
+				margin: 0;
+				padding: 0;
+
+			}
+			#GSAP-size li {
+				padding-left: 30px;
+				font-size: 24px;
+			}
+		</style>
+	</section>
+
+	<section class="slide" id="GSAP-api">
+		<h2>API (то, чего хватает для работы)</h2>
+		<ul>
+			<li><code>.set</code></li>
+			<li><code>.to</code></li>
+			<li><code>.fromTo</code></li>
+			<li><code>.delay</code></li>
+			<li><code>.call</code></li>
+			<li><code>.addLabel</code></li>
+			<li><code>.eventCallback</code></li>
+		</ul>
+		<style>
+			#GSAP-api ul {
+				margin: 0;
+				font-size: 24px;
+				padding-left: 0 0 0 30px;
+			}
 		</style>
 	</section>
 
 	<section class="slide">
-		<h2 class="shout shrink">You can even shout this way</h2>
+		<h2>Релазиуем появление уведомления</h2>
+		<b>Описание задачи</b>
+		<p>Плашка должна появляться сверху вниз и исчезнуть после 3 секунд в обратном порядке.</p>
 	</section>
 
-	<section class="slide">
-		<h2>Inner navigation</h2>
-		<ol>
-			<li>Lets you reveal list items one by one</li>
-			<li class="next">To keep some key points</li>
-			<li class="next">In secret from audience</li>
-			<li class="next">But it will work only once</li>
-			<li class="next">Nobody wants to see the same joke twice</li>
-		</ol>
-	</section>
-
-	<section class="slide grid">
-		<h2>All nicely aligned to grid</h2>
-	</section>
-
-	<section class="slide" id="see-more">
-		<h2 class="shout">
-			<img src="pictures/logo.svg" alt="Shower logo">
-			<a href="https://github.com/shower/shower">See more on GitHub</a>
-		</h2>
-		<style>
-			#see-more h2 {
-				font-size:100px
-				}
-			#see-more img {
-				width:0.72em;
-				height:0.72em;
-				}
-		</style>
+	<section class="slide large-code">
+		<iframe src="https://codepen.io/inomdzhon/embed/bRLbXy?height=100%25&amp;theme-id=light&amp;slug-hash=YVgBdm&amp;default-tab=js,result&amp;user=inomdzhon&amp;embed-version=2&amp;pen-title=react-motion%20%20tiles%20fadeIn" scrolling="no" frameborder="0" height="100%" allowtransparency="true" allowfullscreen="true" name="CodePen Embed" title="react-motion  tiles fadeIn" class="cp_embed_iframe " style="width: 100%; overflow: hidden;"></iframe>
 	</section>
 
 	<footer class="badge">
